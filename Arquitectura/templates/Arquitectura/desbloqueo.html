@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>MoBike</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<link rel="icon" type="image/png" href="favcon.png">
+		<link rel="stylesheet" href="main.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+		<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	</head>
+	<body class="right-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a id="logo">MoBike</a></h1>
+							</header>
+						</div>
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="zonas.html">Zonas disponibles</a></li>
+								<li><a href="desbloqueo.html">Bloqueo/Desbloqueo de bicicletas</a></li>
+								<li><a href="index.html">Salir</a></li>
+							</ul>
+						</nav>
+				</div>
+				<center>
+				<div id="app">
+					<div class="sidebar">
+						<section class="cameras">
+							<h2>Camara Smartphone</h2>
+							<ul>
+								<li v-if="cameras.length === 0" class="empty">No hay camara</li>
+						</ul>
+						</section>
+						<section class="scans">
+							<h2>Escanee la bicicleta</h2>
+							<ul v-if="scans.length === 0">
+								<li class="empty">No se ah escaneado bicicleta</li>
+							</ul>
+							<transition-group id= popup name="scans" tag="ul">
+								<li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</li>
+							</transition-group>
+						</section>
+					</div>
+					<div class="preview-container">
+						<video id="preview"></video>
+					</div>
+				</div>
+			</center>
+				<script type="text/javascript" src="app.js"></script>
+
+			<!-- Main -->
+			<div id="reader" style="width:300px;height:300px">
+				<script type="text/javascript">
+				$('#reader').html5_qrcode(function(data){
+		 // do something when code is read
+	},
+	function(error){
+		//show read errors
+	}, function(videoError){
+		//the video stream could be opened
+	}
+);
+				</script>
+
+		 </div>
+
+
+
+
+			<!-- Footer -->
+			<div id="footer">
+				<div class="row">
+					<div class="col-12">
+
+						<!-- Contact -->
+							<section class="contact">
+								<header>
+									<h3>Redes sociales</h3>
+								</header>
+
+								<ul class="icons">
+									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+									<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+								</ul>
+							</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+		</div>
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/jquery.dropotron.min.js"></script>
+			<script src="static/js/jquery.scrolly.min.js"></script>
+			<script src="static/js/jquery.scrollex.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+			<script type="text/javascript" src="grid.js"></script>
+
+
+	</body>
+
+</html>
